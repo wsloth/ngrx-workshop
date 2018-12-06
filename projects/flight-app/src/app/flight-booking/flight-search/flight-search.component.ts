@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FlightService, Flight } from '@flight-workspace/flight-api';
+import { Flight } from '@flight-workspace/flight-api';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { FlightBookingStateRef } from '../+state/flight-booking.reducer';
-import { LoadFlights, FlightsLoaded, FlightUpdated } from '../+state/flight-booking.actions';
+import { LoadFlights, FlightUpdated } from '../+state/flight-booking.actions';
 import { getFlights } from '../+state/flight-booking.selector';
 
 @Component({
@@ -26,10 +26,7 @@ export class FlightSearchComponent implements OnInit {
     "5": true
   };
 
-  constructor(
-    private store: Store<FlightBookingStateRef>,
-    private flightService: FlightService) {
-  }
+  constructor(private store: Store<FlightBookingStateRef>) {}
 
   ngOnInit() {
     this.flights$ = this.store.select(getFlights);
