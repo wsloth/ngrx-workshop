@@ -23,7 +23,10 @@ export function reducer(state = initialState, action: FlightBookingActions): Fli
       return {...state, flights: action.payload.flights };
 
     case FlightBookingActionTypes.FlightUpdated:
-      return state;
+      const flightIndex = state.flights.findIndex(x => x.id === action.payload.flight.id);
+      const newFlights = state.flights.slice();
+      newFlights[flightIndex] = action.payload.flight;
+      return {...state, flights: newFlights};
 
     default:
       return state;
