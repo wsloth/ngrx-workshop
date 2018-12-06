@@ -6,7 +6,7 @@ import { FlightBookingActions, FlightBookingActionTypes } from './flight-booking
 export class FlightBookingEffects {
 
   @Effect()
-  effect$ = this.actions$.ofType(FlightBookingActionTypes.LoadFlightBookings);
+  effect$ = this.actions$.ofType(FlightBookingActionTypes.FlightsLoaded);
 
   constructor(private actions$: Actions) {}
 }
