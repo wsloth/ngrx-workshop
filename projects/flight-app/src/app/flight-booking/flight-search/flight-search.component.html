@@ -34,8 +34,8 @@
           Delay 1st Flight
         </button>
 
-        <div *ngIf="flights.length > 0">
-          {{flights.length}} flights found!
+        <div *ngIf="(flights$ | async).length > 0">
+          {{(flights$ | async).length}} flights found!
         </div>
 
       </div>
